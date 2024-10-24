@@ -1,0 +1,9 @@
+<h1><%= t('views.movies.new.title') %></h1>
+
+<%= render "form", movie: @movie %>
+
+<br>
+
+<div>
+  <%= link_to t('views.movies.index.title'), movies_path %>
+</div>

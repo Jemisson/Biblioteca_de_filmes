@@ -1,0 +1,34 @@
+pt-BR:
+  activerecord:
+    models:
+      movie: Filme
+    attributes:
+      movie:
+        title: Título
+        director: Diretor
+        release_date: Data de Lançamento
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
+      submit: "Salvar %{model}"
+      destroy: "Excluir %{model}"
+  views:
+    movies:
+      index:
+        title: "Lista de Filmes"
+        new_movie: "Novo Filme"
+      new:
+        title: "Novo Filme"
+      edit:
+        title: "Editar Filme"
+      show:
+        title: "Detalhes do Filme"
+  errors:
+    template:
+      header:
+        one: "1 erro impediu este %{model} de ser salvo"
+        other: "%{count} erros impediram este %{model} de ser salvo"
+      body: "Verifique os erros abaixo e tente novamente:"
+    messages:
+      blank: "não pode ficar em branco"

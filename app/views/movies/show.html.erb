@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @movie %>
+
+<div>
+  <%= link_to t('views.movies.edit.title'), edit_movie_path(@movie) %> |
+  <%= link_to t('views.movies.index.title'), movies_path %>
+
+  <%= button_to t('helpers.submit.destroy', model: t('activerecord.models.movie')), @movie, method: :delete %>
+</div>

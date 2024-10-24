@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('views.movies.index.title') %></h1>
+
+<div id="movies">
+  <% @movies.each do |movie| %>
+    <%= render movie %>
+    <p>
+      <%= link_to t('views.movies.show.title'), movie %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to t('views.movies.index.new_movie'), new_movie_path %>
