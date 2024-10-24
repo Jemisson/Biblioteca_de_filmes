@@ -11,6 +11,9 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "pg"
+gem 'faker'
+gem 'devise'
+gem "image_processing", ">= 1.2"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

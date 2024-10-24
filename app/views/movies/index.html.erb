@@ -1,3 +1,7 @@
+<p>Olá <%= user_signed_in? ? current_user.email : 'visitante' %></p>
+
+<%= button_to "Logout", destroy_user_session_path, method: :delete %>
+
 <p style="color: green"><%= notice %></p>
 
 <h1><%= t('views.movies.index.title') %></h1>
