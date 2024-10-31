@@ -4,7 +4,7 @@ class MovieFilter
       Movie.all
     end
 
-    def find_by_id(id)
+    def find_by(id)
       Movie.find(id)
     end
   end

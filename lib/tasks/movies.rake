@@ -5,7 +5,7 @@ namespace :populate do
       Movie.create(
         title: Faker::Movie.title,
         director: Faker::Name.name,
-        release_date: Faker::Date.between(from: '1900-01-01', to: Date.today)
+        release_date: Faker::Date.between(from: '1900-01-01', to: Time.zone.today)
       )
     end
 

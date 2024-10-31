@@ -1,7 +1,13 @@
 <div id="<%= dom_id movie %>">
   <% if @movie && @movie.photos.attached? %>
     <% @movie.photos.each do |photo| %>
-      <%= image_tag photo %>
+      <div class="photo-item">
+        <%= image_tag photo %>
+        <%= button_to t('actions.delete'), destroy_photo_movie_path(@movie, photo_id: photo.id), 
+                      method: :delete, 
+                      data: { confirm: 'Tem certeza de que deseja excluir esta foto?' }, 
+                      class: 'btn btn-danger btn-sm' %>
+      </div>
     <% end %>
   <% end %>
 
@@ -19,5 +25,4 @@
     <strong><%= t('activerecord.attributes.movie.release_date') %>:</strong>
     <%= movie.release_date %>
   </p>
-
 </div>

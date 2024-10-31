@@ -58,10 +58,18 @@ class MoviesController < ApplicationController
     end
   end
 
+  def destroy_photo
+    @movie = MovieFilter.find_by(params[:id])
+    photo = @movie.photos.find(params[:photo_id])
+    photo.purge
+
+    redirect_to movie_path(@movie), notice: 'Foto removida com sucesso.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
-      @movie = MovieFilter.find_by_id(params[:id])
+      @movie = MovieFilter.find_by(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,18 +1,34 @@
-<p>Olá <%= user_signed_in? ? current_user.email : 'visitante' %></p>
-
-<%= button_to "Logout", destroy_user_session_path, method: :delete %>
-
-<p style="color: green"><%= notice %></p>
-
 <h1><%= t('views.movies.index.title') %></h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to t('views.movies.show.title'), movie %>
-    </p>
-  <% end %>
-</div>
+<%= link_to t('views.movies.index.new_movie'), new_movie_path, class: 'btn btn-outline-success' %>
 
-<%= link_to t('views.movies.index.new_movie'), new_movie_path %>
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Filmes</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <% @movies.each do |movie| %>
+        <div class="col">
+          <%= link_to movie_path(movie), class: "card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg", style: "background-image: url(#{movie.photos.first.present? ? url_for(movie.photos.first) : image_path('no_photo.jpg')}); background-size: cover; background-position: center;" do %>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><%= movie.title %></h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Earth</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>3d</small>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
+  </div>
